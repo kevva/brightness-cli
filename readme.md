@@ -15,8 +15,8 @@ $ npm install --save brightness
 ```js
 var brightness = require('brightness');
 
-brightness.get(function (err, brightness) {
-	console.log(brightness);
+brightness.get(function (err, level) {
+	console.log(level);
 	// '0.5'
 });
 
