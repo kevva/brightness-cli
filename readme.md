@@ -25,7 +25,7 @@ var brightness = require('brightness');
 
 brightness.get(function (err, level) {
 	console.log(level);
-	// '0.5'
+	// 0.5
 });
 
 brightness.set(0.8, function (err) {
