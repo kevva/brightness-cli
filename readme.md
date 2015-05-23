@@ -1,6 +1,14 @@
-# brightness [![Build Status](https://travis-ci.org/kevva/brightness.svg?branch=master)](https://travis-ci.org/kevva/brightness)
+<h1 align="center">
+	<br>
+	<img width="360" src="https://rawgit.com/kevva/brightness/master/media/logo.svg" alt="brightness">
+	<br>
+	<br>
+	<br>
+</h1>
 
 > Change screen brightness (OS X and Linux only)
+
+[![Build Status](https://travis-ci.org/kevva/brightness.svg?branch=master)](https://travis-ci.org/kevva/brightness)
 
 
 ## Install
