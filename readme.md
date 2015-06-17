@@ -6,7 +6,7 @@
 	<br>
 </h1>
 
-> Change screen brightness (OS X and Linux only)
+> Change screen brightness
 
 [![Build Status](https://travis-ci.org/kevva/brightness.svg?branch=master)](https://travis-ci.org/kevva/brightness)
 
