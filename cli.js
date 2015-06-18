@@ -8,7 +8,7 @@ var cli = meow({
 		'Example',
 		'  $ brightness',
 		'  $ brightness 0.8'
-	].join('\n')
+	]
 });
 
 if (!cli.input.length) {
