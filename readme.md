@@ -34,6 +34,40 @@ brightness.set(0.8, function (err) {
 ```
 
 
+## API
+
+### .get(callback)
+
+Get brightness level. *Doesn't work on Windows systems.*
+
+#### callback(err, level)
+
+Type: `function`
+
+##### level
+
+Type: `number`
+
+Current brightness level.
+
+### .set(level, callback)
+
+Set brightness level.
+
+#### level
+
+*Required*  
+Type: `number`
+
+A number between `0` and `1`.
+
+#### callback(err)
+
+Type: `function`
+
+Callback that returns nothing but a possible exception.
+
+
 ## CLI
 
 ```
