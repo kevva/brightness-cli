@@ -11,22 +11,27 @@ var cli = meow({
 	]
 });
 
-if (!cli.input.length) {
-	brightness.get(function (err, data) {
+try {
+	if (!cli.input.length) {
+		brightness.get(function (err, data) {
+			if (err) {
+				console.error(err.message);
+				process.exit(1);
+			}
+
+			console.log(data);
+		});
+
+		return;
+	}
+
+	brightness.set(parseFloat(cli.input[0], 10), function (err) {
 		if (err) {
 			console.error(err.message);
 			process.exit(1);
 		}
-
-		console.log(data);
 	});
-
-	return;
+} catch (err) {
+	console.error(err.message);
+	process.exit(1);
 }
-
-brightness.set(parseFloat(cli.input[0], 10), function (err) {
-	if (err) {
-		console.error(err.message);
-		process.exit(1);
-	}
-});
