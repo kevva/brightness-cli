@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
+var brightness = require('brightness');
 var meow = require('meow');
-var brightness = require('./');
 
 var cli = meow({
 	help: [

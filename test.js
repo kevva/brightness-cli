@@ -1,27 +1,19 @@
 'use strict';
+var path = require('path');
+var spawn = require('child_process').spawn;
+var concatStream = require('concat-stream');
 var test = require('ava');
-var brightness = require('./');
 
-if (!process.env.CI) {
-	test('should get brightness', function (t) {
-		t.plan(2);
+test('show help screen', function (t) {
+	t.plan(1);
 
-		brightness.get(function (err, brightness) {
-			t.assert(!err, err);
-			t.assert(brightness);
-		});
-	});
+	var concat = concatStream(end);
+	var cp = spawn(path.join(__dirname, 'cli.js'), ['--help']);
 
-	test('should set brightness', function (t) {
-		t.plan(3);
+	function end(str) {
+		t.assert(/Change screen brightness/.test(str), str);
+	}
 
-		brightness.set(0.5, function (err) {
-			t.assert(!err, err);
-
-			brightness.get(function (err, brightness) {
-				t.assert(!err, err);
-				t.assert(parseInt(brightness) === 0.5);
-			});
-		});
-	});
-}
+	cp.stdout.setEncoding('utf8');
+	cp.stdout.pipe(concat);
+});

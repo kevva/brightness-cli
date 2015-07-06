@@ -1,0 +1,43 @@
+{
+  "name": "brightness-cli",
+  "version": "1.0.0",
+  "description": "Change screen brightness",
+  "license": "MIT",
+  "repository": "kevva/brightness-cli",
+  "author": {
+    "email": "kevinmartensson@gmail.com",
+    "name": "Kevin Martensson",
+    "url": "github.com/kevva"
+  },
+  "bin": {
+    "brightness": "cli.js"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "app",
+    "brightness",
+    "cli",
+    "cli-app",
+    "interactive",
+    "linux",
+    "osx",
+    "screen",
+    "xdg"
+  ],
+  "dependencies": {
+    "brightness": "^1.1.0",
+    "meow": "^3.3.0"
+  },
+  "devDependencies": {
+    "ava": "^0.0.4",
+    "concat-stream": "^1.5.0"
+  }
+}

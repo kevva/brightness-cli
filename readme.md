@@ -8,71 +8,19 @@
 
 > Change screen brightness
 
-[![Build Status](https://travis-ci.org/kevva/brightness.svg?branch=master)](https://travis-ci.org/kevva/brightness)
+[![Build Status](https://travis-ci.org/kevva/brightness-cli.svg?branch=master)](https://travis-ci.org/kevva/brightness-cli)
+
+*See [brightness](https://github.com/kevva/brightness) for the programmatic API and issue tracker.*
 
 
 ## Install
 
 ```
-$ npm install --save brightness
+$ npm install --global brightness-cli
 ```
 
 
 ## Usage
-
-```js
-var brightness = require('brightness');
-
-brightness.get(function (err, level) {
-	console.log(level);
-	// 0.5
-});
-
-brightness.set(0.8, function (err) {
-	console.log('Changed brightness to 80%');
-});
-```
-
-
-## API
-
-### .get(callback)
-
-Get brightness level. *Doesn't work on Windows systems.*
-
-#### callback(err, level)
-
-Type: `function`
-
-##### level
-
-Type: `number`
-
-Current brightness level.
-
-### .set(level, callback)
-
-Set brightness level.
-
-#### level
-
-*Required*  
-Type: `number`
-
-A number between `0` and `1`.
-
-#### callback(err)
-
-Type: `function`
-
-Callback that returns nothing but a possible exception.
-
-
-## CLI
-
-```
-$ npm install --global brightness
-```
 
 ```
 $ brightness --help
