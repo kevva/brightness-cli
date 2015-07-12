@@ -34,7 +34,8 @@
   ],
   "dependencies": {
     "brightness": "^1.1.0",
-    "meow": "^3.3.0"
+    "meow": "^3.3.0",
+    "progress-control": "^1.0.0"
   },
   "devDependencies": {
     "ava": "^0.0.4",
