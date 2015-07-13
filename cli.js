@@ -6,6 +6,7 @@ var progressControl = require('progress-control');
 var chalk = require('chalk');
 var cliCursor = require('cli-cursor');
 var firstRun = require('first-run');
+var indentString = require('indent-string');
 
 var cli = meow({
 	help: [
@@ -44,7 +45,9 @@ try {
 						}
 					});
 
-					bar.update(val, {val: val * 100 + '%'});
+					var str = (val * 100) + '%';
+					var maxLength = 5;
+					bar.update(val, {val: indentString(str, ' ', maxLength - str.length)});
 				}
 
 				cliCursor.hide();
