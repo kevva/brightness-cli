@@ -4,6 +4,7 @@ var brightness = require('brightness');
 var meow = require('meow');
 var progressControl = require('progress-control');
 var chalk = require('chalk');
+var cliCursor = require('cli-cursor');
 
 var cli = meow({
 	help: [
@@ -37,6 +38,8 @@ try {
 
 					bar.update(val, {val: val * 100 + '%'});
 				}
+
+				cliCursor.hide();
 
 				var text = '[:bar] :val   ' + chalk.dim('Use up/down arrows');
 				var bar = progressControl(text, {total: 10}, {
