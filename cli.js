@@ -22,6 +22,11 @@ try {
 				process.exit(1);
 			}
 
+			if (!process.stdin.isTTY) {
+				console.log(val);
+				return;
+			}
+
 			brightness.set(val, function (err) {
 				if (err) {
 					console.error(err.message);
