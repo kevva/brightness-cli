@@ -11,7 +11,7 @@ test('show help screen', function (t) {
 	var cp = spawn(path.join(__dirname, 'cli.js'), ['--help']);
 
 	function end(str) {
-		t.assert(/Change screen brightness/.test(str), str);
+		t.assert(/Change the screen brightness/.test(str), str);
 	}
 
 	cp.stdout.setEncoding('utf8');

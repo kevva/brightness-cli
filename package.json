@@ -1,7 +1,7 @@
 {
   "name": "brightness-cli",
   "version": "2.0.0",
-  "description": "Change screen brightness",
+  "description": "Change the screen brightness",
   "license": "MIT",
   "repository": "kevva/brightness-cli",
   "author": {
