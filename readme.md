@@ -22,6 +22,8 @@ $ npm install --global brightness-cli
 
 ## Usage
 
+<img width="283" src="screenshot.png">
+
 ```
 $ brightness --help
 
