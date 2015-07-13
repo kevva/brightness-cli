@@ -28,6 +28,8 @@ try {
 					process.exit(1);
 				}
 
+				val = Math.round((val) * 10) / 10;
+
 				function updateBar(val) {
 					brightness.set(val, function (err) {
 						if (err) {
