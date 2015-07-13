@@ -36,6 +36,7 @@
     "brightness": "^1.1.0",
     "chalk": "^1.1.0",
     "cli-cursor": "^1.0.1",
+    "first-run": "^1.0.0",
     "meow": "^3.3.0",
     "progress-control": "^1.0.0"
   },

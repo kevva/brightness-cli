@@ -5,6 +5,7 @@ var meow = require('meow');
 var progressControl = require('progress-control');
 var chalk = require('chalk');
 var cliCursor = require('cli-cursor');
+var firstRun = require('first-run');
 
 var cli = meow({
 	help: [
@@ -48,7 +49,12 @@ try {
 
 				cliCursor.hide();
 
-				var text = '[:bar] :val   ' + chalk.dim('Use up/down arrows');
+				var text = '[:bar] :val';
+
+				if (firstRun()) {
+					text += '   ' + chalk.dim('Use up/down arrows');
+				}
+
 				var bar = progressControl(text, {total: 10}, {
 					up: function () {
 						val = Math.min(Math.round((val + 0.1) * 10) / 10, 1);
