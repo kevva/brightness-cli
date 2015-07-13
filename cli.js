@@ -3,6 +3,7 @@
 var brightness = require('brightness');
 var meow = require('meow');
 var progressControl = require('progress-control');
+var chalk = require('chalk');
 
 var cli = meow({
 	help: [
@@ -34,10 +35,11 @@ try {
 						}
 					});
 
-					bar.update(val, {val: val});
+					bar.update(val, {val: val * 100 + '%'});
 				}
 
-				var bar = progressControl('Use up/down arrows [:bar] :val ', {total: 10}, {
+				var text = '[:bar] :val   ' + chalk.dim('Use up/down arrows');
+				var bar = progressControl(text, {total: 10}, {
 					up: function () {
 						val = Math.min(Math.round((val + 0.1) * 10) / 10, 1);
 						updateBar(val);
