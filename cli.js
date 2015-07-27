@@ -46,7 +46,8 @@ try {
 					});
 
 					var str = (val * 100) + '%';
-					var maxLength = 5;
+					var maxLength = 4;
+
 					bar.update(val, {val: indentString(str, ' ', maxLength - str.length)});
 				}
 
