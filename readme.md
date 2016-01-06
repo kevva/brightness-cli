@@ -10,8 +10,6 @@
 
 [![Build Status](https://travis-ci.org/kevva/brightness-cli.svg?branch=master)](https://travis-ci.org/kevva/brightness-cli)
 
-*See [brightness](https://github.com/kevva/brightness) for the programmatic API and issue tracker.*
-
 
 ## Install
 
@@ -31,6 +29,11 @@ $ brightness --help
     $ brightness
     $ brightness 0.8
 ```
+
+
+## Related
+
+* [brightness](https://github.com/kevva/brightness) - API for this module
 
 
 ## License
