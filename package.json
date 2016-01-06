@@ -16,7 +16,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "ava"
   },
   "files": [
     "cli.js"
@@ -43,7 +43,7 @@
     "progress-control": "^1.0.0"
   },
   "devDependencies": {
-    "ava": "^0.0.4",
-    "concat-stream": "^1.5.0"
+    "ava": "*",
+    "execa": "^0.1.1"
   }
 }

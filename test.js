@@ -1,19 +1,7 @@
-'use strict';
-var path = require('path');
-var spawn = require('child_process').spawn;
-var concatStream = require('concat-stream');
-var test = require('ava');
+import execa from 'execa';
+import test from 'ava';
 
-test('show help screen', function (t) {
-	t.plan(1);
-
-	var concat = concatStream(end);
-	var cp = spawn(path.join(__dirname, 'cli.js'), ['--help']);
-
-	function end(str) {
-		t.assert(/Change the screen brightness/.test(str), str);
-	}
-
-	cp.stdout.setEncoding('utf8');
-	cp.stdout.pipe(concat);
+test('show help screen', async t => {
+	const ret = await execa('./cli.js', ['--help']);
+	t.regexTest(/Change the screen brightness/, ret.stdout);
 });
