@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 'use strict';
-var brightness = require('brightness');
-var meow = require('meow');
-var progressControl = require('progress-control');
-var chalk = require('chalk');
-var cliCursor = require('cli-cursor');
-var firstRun = require('first-run');
-var indentString = require('indent-string');
+const brightness = require('brightness');
+const meow = require('meow');
+const progressControl = require('progress-control');
+const chalk = require('chalk');
+const cliCursor = require('cli-cursor');
+const firstRun = require('first-run');
+const indentString = require('indent-string');
 
-var cli = meow({
+const cli = meow({
 	help: [
 		'Example',
 		'  $ brightness',
@@ -17,8 +17,8 @@ var cli = meow({
 });
 
 try {
-	if (!cli.input.length) {
-		brightness.get(function (err, val) {
+	if (cli.input.length === 0) {
+		brightness.get((err, val) => {
 			if (err) {
 				console.error(err.message);
 				process.exit(1);
@@ -29,7 +29,7 @@ try {
 				return;
 			}
 
-			brightness.set(val, function (err) {
+			brightness.set(val, err => {
 				if (err) {
 					console.error(err.message);
 					process.exit(1);
@@ -37,29 +37,9 @@ try {
 
 				val = Math.round((val) * 10) / 10;
 
-				function updateBar(val) {
-					brightness.set(val, function (err) {
-						if (err) {
-							console.error(err.message);
-							process.exit(1);
-						}
-					});
+				let text = '[:bar] :val';
 
-					var str = (val * 100) + '%';
-					var maxLength = 4;
-
-					bar.update(val, {val: indentString(str, ' ', maxLength - str.length)});
-				}
-
-				cliCursor.hide();
-
-				var text = '[:bar] :val';
-
-				if (firstRun()) {
-					text += '   ' + chalk.dim('Use up/down arrows');
-				}
-
-				var bar = progressControl(text, {total: 10}, {
+				const bar = progressControl(text, {total: 10}, {
 					up: function () {
 						val = Math.min(Math.round((val + 0.1) * 10) / 10, 1);
 						updateBar(val);
@@ -70,19 +50,37 @@ try {
 					}
 				});
 
+				function updateBar(val) {
+					brightness.set(val, err => {
+						if (err) {
+							console.error(err.message);
+							process.exit(1);
+						}
+					});
+
+					const str = (val * 100) + '%';
+					const maxLength = 4;
+
+					bar.update(val, {val: indentString(str, ' ', maxLength - str.length)});
+				}
+
+				cliCursor.hide();
+
+				if (firstRun()) {
+					text += '   ' + chalk.dim('Use up/down arrows');
+				}
+
 				updateBar(val);
 			});
 		});
-
-		return;
+	} else {
+		brightness.set(parseFloat(cli.input[0], 10), err => {
+			if (err) {
+				console.error(err.message);
+				process.exit(1);
+			}
+		});
 	}
-
-	brightness.set(parseFloat(cli.input[0], 10), function (err) {
-		if (err) {
-			console.error(err.message);
-			process.exit(1);
-		}
-	});
 } catch (err) {
 	console.error(err.message);
 	process.exit(1);
