@@ -34,7 +34,7 @@
     "xdg"
   ],
   "dependencies": {
-    "brightness": "^2.1.0",
+    "brightness": "^3.0.0",
     "chalk": "^1.1.0",
     "cli-cursor": "^1.0.1",
     "first-run": "^1.0.0",

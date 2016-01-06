@@ -18,23 +18,13 @@ const cli = meow({
 
 try {
 	if (cli.input.length === 0) {
-		brightness.get((err, val) => {
-			if (err) {
-				console.error(err.message);
-				process.exit(1);
-			}
-
+		brightness.get().then(val => {
 			if (!process.stdin.isTTY) {
 				console.log(val);
 				return;
 			}
 
-			brightness.set(val, err => {
-				if (err) {
-					console.error(err.message);
-					process.exit(1);
-				}
-
+			brightness.set(val).then(() => {
 				val = Math.round((val) * 10) / 10;
 
 				let text = '[:bar] :val';
@@ -51,12 +41,7 @@ try {
 				});
 
 				function updateBar(val) {
-					brightness.set(val, err => {
-						if (err) {
-							console.error(err.message);
-							process.exit(1);
-						}
-					});
+					brightness.set(val).then();
 
 					const str = (val * 100) + '%';
 					const maxLength = 4;
@@ -74,12 +59,7 @@ try {
 			});
 		});
 	} else {
-		brightness.set(parseFloat(cli.input[0], 10), err => {
-			if (err) {
-				console.error(err.message);
-				process.exit(1);
-			}
-		});
+		brightness.set(parseFloat(cli.input[0], 10));
 	}
 } catch (err) {
 	console.error(err.message);
