@@ -2,6 +2,9 @@ import execa from 'execa';
 import test from 'ava';
 
 test('show help screen', async t => {
-	const ret = await execa('./cli.js', ['--help']);
-	t.regexTest(/Change the screen brightness/, ret.stdout);
+	t.regex(await execa.stdout('./cli.js', ['--help']), /Change the screen brightness/);
+});
+
+test('show version', async t => {
+	t.is(await execa.stdout('./cli.js', ['--version']), require('./package').version);
 });
