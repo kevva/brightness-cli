@@ -30,11 +30,11 @@ try {
 				let text = '[:bar] :val';
 
 				const bar = progressControl(text, {total: 10}, {
-					up: function () {
+					up: () => {
 						val = Math.min(Math.round((val + 0.1) * 10) / 10, 1);
 						updateBar(val);
 					},
-					down: function () {
+					down: () => {
 						val = Math.max(Math.round((val - 0.1) * 10) / 10, 0);
 						updateBar(val);
 					}
@@ -43,7 +43,7 @@ try {
 				function updateBar(val) {
 					brightness.set(val).then();
 
-					const str = (val * 100) + '%';
+					const str = `${(val * 100)}%`;
 					const maxLength = 4;
 
 					bar.update(val, {val: indentString(str, ' ', maxLength - str.length)});
@@ -52,7 +52,7 @@ try {
 				cliCursor.hide();
 
 				if (firstRun()) {
-					text += '   ' + chalk.dim('Use up/down arrows');
+					text += `   ${chalk.dim('Use up/down arrows')}`;
 				}
 
 				updateBar(val);
