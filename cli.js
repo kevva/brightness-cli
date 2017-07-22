@@ -37,7 +37,7 @@ const getBar = (val, text) => {
 };
 
 const main = val => {
-	if (!process.stdin.isTTY) {
+	if (!process.stdout.isTTY) {
 		console.log(val);
 		return;
 	}
