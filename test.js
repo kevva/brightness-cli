@@ -1,10 +1,10 @@
 import execa from 'execa';
 import test from 'ava';
 
-test('show help screen', async t => {
-	t.regex(await execa.stdout('./cli.js', ['--help']), /Change the screen brightness/);
+test('doesn\'t throw', async t => {
+	await t.notThrows(execa.stdout('./cli.js'));
 });
 
-test('show version', async t => {
-	t.is(await execa.stdout('./cli.js', ['--version']), require('./package').version);
+test('should set brightness', async t => {
+	await t.notThrows(execa.stdout('./cli.js', [0.8]));
 });

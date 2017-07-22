@@ -1,53 +1,50 @@
 {
-  "name": "brightness-cli",
-  "version": "2.3.0",
-  "description": "Change the screen brightness",
-  "license": "MIT",
-  "repository": "kevva/brightness-cli",
-  "author": {
-    "email": "kevinmartensson@gmail.com",
-    "name": "Kevin Martensson",
-    "url": "github.com/kevva"
-  },
-  "bin": {
-    "brightness": "cli.js"
-  },
-  "engines": {
-    "node": ">=4"
-  },
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "files": [
-    "cli.js"
-  ],
-  "keywords": [
-    "app",
-    "brightness",
-    "cli",
-    "cli-app",
-    "interactive",
-    "linux",
-    "osx",
-    "screen",
-    "windows",
-    "xdg"
-  ],
-  "dependencies": {
-    "brightness": "^3.0.0",
-    "chalk": "^1.1.0",
-    "cli-cursor": "^1.0.1",
-    "first-run": "^1.0.0",
-    "indent-string": "^1.2.1",
-    "meow": "^3.3.0",
-    "progress-control": "^1.0.0"
-  },
-  "devDependencies": {
-    "ava": "*",
-    "execa": "^0.4.0",
-    "xo": "*"
-  },
-  "xo": {
-    "esnext": true
-  }
+	"name": "brightness-cli",
+	"version": "2.3.0",
+	"description": "Change the screen brightness",
+	"license": "MIT",
+	"repository": "kevva/brightness-cli",
+	"author": {
+		"email": "kevinmartensson@gmail.com",
+		"name": "Kevin Mårtensson",
+		"url": "github.com/kevva"
+	},
+	"bin": {
+		"brightness": "cli.js"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"cli.js"
+	],
+	"keywords": [
+		"app",
+		"brightness",
+		"cli",
+		"cli-app",
+		"interactive",
+		"linux",
+		"osx",
+		"screen",
+		"windows",
+		"xdg"
+	],
+	"dependencies": {
+		"brightness": "^3.0.0",
+		"chalk": "^2.0.1",
+		"cli-cursor": "^2.1.0",
+		"first-run": "^1.0.0",
+		"indent-string": "^3.1.0",
+		"meow": "^3.3.0",
+		"progress-control": "^1.0.0"
+	},
+	"devDependencies": {
+		"ava": "*",
+		"execa": "^0.7.0",
+		"xo": "*"
+	}
 }
